@@ -1,4 +1,5 @@
 // WRITE YOUR CODE HERE// WRITE YOUR CODE HERE
+
 const fruitInventory = new Map([
     ['apple', 10],
     ['banana', 20],
