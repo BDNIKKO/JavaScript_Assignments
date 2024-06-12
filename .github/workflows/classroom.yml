@@ -1,0 +1,80 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: fruitInventory is a map
+      id: fruitinventory-is-a-map
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: fruitInventory is a map
+        setup-command: npm install
+        command: npm run test:index-1
+        timeout: 10
+        max-score: 1
+    - name: fruitInventory contains correct initial values
+      id: fruitinventory-contains-correct-initial-values
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: fruitInventory contains correct initial values
+        setup-command: npm install
+        command: npm run test:index-2
+        timeout: 10
+        max-score: 1
+    - name: bananaInventory is correctly retrieved
+      id: bananainventory-is-correctly-retrieved
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: bananaInventory is correctly retrieved
+        setup-command: npm install
+        command: npm run test:index-3
+        timeout: 10
+        max-score: 1
+    - name: uniqueColors is a Set
+      id: uniquecolors-is-a-set
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: uniqueColors is a Set
+        setup-command: npm install
+        command: npm run test:index-4
+        timeout: 10
+        max-score: 1
+    - name: uniqueColors contains correct initial values and added value
+      id: uniquecolors-contains-correct-initial-values-and-added-value
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: uniqueColors contains correct initial values and added value
+        setup-command: npm install
+        command: npm run test:index-5
+        timeout: 10
+        max-score: 1
+    - name: hasBlue is correctly set
+      id: hasblue-is-correctly-set
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: hasBlue is correctly set
+        setup-command: npm install
+        command: npm run test:index-6
+        timeout: 10
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        FRUITINVENTORY-IS-A-MAP_RESULTS: "${{steps.fruitinventory-is-a-map.outputs.result}}"
+        FRUITINVENTORY-CONTAINS-CORRECT-INITIAL-VALUES_RESULTS: "${{steps.fruitinventory-contains-correct-initial-values.outputs.result}}"
+        BANANAINVENTORY-IS-CORRECTLY-RETRIEVED_RESULTS: "${{steps.bananainventory-is-correctly-retrieved.outputs.result}}"
+        UNIQUECOLORS-IS-A-SET_RESULTS: "${{steps.uniquecolors-is-a-set.outputs.result}}"
+        UNIQUECOLORS-CONTAINS-CORRECT-INITIAL-VALUES-AND-ADDED-VALUE_RESULTS: "${{steps.uniquecolors-contains-correct-initial-values-and-added-value.outputs.result}}"
+        HASBLUE-IS-CORRECTLY-SET_RESULTS: "${{steps.hasblue-is-correctly-set.outputs.result}}"
+      with:
+        runners: fruitinventory-is-a-map,fruitinventory-contains-correct-initial-values,bananainventory-is-correctly-retrieved,uniquecolors-is-a-set,uniquecolors-contains-correct-initial-values-and-added-value,hasblue-is-correctly-set

@@ -1,0 +1,28 @@
+{
+  "name": "mapssets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose ./.ignore/test.js",
+    "test:index-1": "jest --verbose --testNamePattern=\"fruitInventory is a Map\" ./test.js",
+    "test:index-2": "jest --verbose --testNamePattern=\"fruitInventory contains correct initial values\" ./test.js",
+    "test:index-3": "jest --verbose --testNamePattern=\"bananaInventory is correctly retrieved\" ./test.js",
+    "test:index-4": "jest --verbose --testNamePattern=\"uniqueColors is a Set\" ./test.js",
+    "test:index-5": "jest --verbose --testNamePattern=\"uniqueColors contains correct initial values and added value\" ./test.js",
+    "test:index-6": "jest --verbose --testNamePattern=\"hasBlue is correctly set\" ./test.js"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@testing-library/dom": "^10.1.0",
+    "@testing-library/jest-dom": "^6.4.5",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^24.1.0",
+    "ser": "^0.1.2"
+  }
+}
+
