@@ -1,5 +1,5 @@
 function outer() {
-    let a = "string 1"
+    var a = "string 1"
     var b = { name: "Nick", age: 32 };
     console.log("Inner a", a); 
     console.log("Inner b", b);
