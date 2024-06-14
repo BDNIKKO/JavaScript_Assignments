@@ -1,6 +1,6 @@
 function outer() {
     let a = "string 1"
-    let b = "string 2"
+    var b = { name: "Nick", age: 32 };
     console.log("Inner a", a); 
     console.log("Inner b", b);
     
