@@ -126,13 +126,13 @@ if (draftMailbox && draftMailbox.emails.length > 0) {
     draftMailbox.emails = draftMailbox.emails.filter(email => email !== draftEmail);
 }
 
-console.log('Updated Gmail Data:', gmailData);2
+console.log('Updated Gmail Data:', gmailData);
 2
-let newDraftEmail = {2
-    subject: 'List of Appts',2
-    sender: 'moppertn@gmail.com',2
-    receiver: 'yamile.kaplancenter@gmail.com',2
-    body: 'Thank you! I appreciate it.',2
+let newDraftEmail = {
+    subject: 'List of Appts',
+    sender: 'moppertn@gmail.com',
+    receiver: 'yamile.kaplancenter@gmail.com',
+    body: 'Thank you! I appreciate it.',
     date: 'Apr 20, 2016',
     status: 'draft'
 };
