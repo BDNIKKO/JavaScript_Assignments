@@ -24,8 +24,6 @@ const player4 = {
     getHand: getHand
 }
 
-
-
 function playRound(player1, player2) {
     const hand1 = player1.getHand();
     const hand2 = player2.getHand();
